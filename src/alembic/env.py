@@ -1,12 +1,12 @@
 from logging.config import fileConfig
 
 from alembic import context
-from database import models
+from database import db_models
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 fileConfig(config.config_file_name)
-target_metadata = models.Base.metadata
+target_metadata = db_models.Base.metadata
 
 
 # Interpret the config file for Python logging.

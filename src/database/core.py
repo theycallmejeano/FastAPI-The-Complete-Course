@@ -9,8 +9,6 @@ class PostgresDB:
 
     def __new__(cls, pg_creds: dict, postgres_schema: str, *args, **kwargs):
         """Singleton constructor for PostgresDB"""
-        print(pg_creds)
-
         if cls._instance is None:
             cls._instance = super(PostgresDB, cls).__new__(cls)
             try:
