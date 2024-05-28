@@ -41,8 +41,8 @@ def upgrade() -> None:
     sa.Column('description', sa.String(), nullable=True),
     sa.Column('priority', sa.Integer(), nullable=True),
     sa.Column('complete', sa.Boolean(), nullable=True),
-    sa.Column('owner_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
+    sa.Column('user_fk', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['user_fk'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_todos_id'), 'todos', ['id'], unique=False)
