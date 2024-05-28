@@ -1,6 +1,7 @@
-from database.core import Base
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
+Base = declarative_base()
 
 class Users(Base):
     __tablename__ = 'users'
@@ -24,4 +25,4 @@ class Todos(Base):
     description = Column(String)
     priority = Column(Integer)
     complete = Column(Boolean, default=False)
-    owner_id = Column(Integer, ForeignKey("users.id"))
+    user_fk = Column(Integer, ForeignKey("users.id"))
